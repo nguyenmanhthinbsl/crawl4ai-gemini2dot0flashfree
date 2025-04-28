@@ -28,14 +28,23 @@ pip install -r requirements.txt
 ```
 
 ## Usage
-1. Configure your crawling settings in the `config.yaml` file.
-2. Run the crawler:
+1. Create your own api key
+    Create your gemini-2.0-flash api key for free at https://ai.google.dev/gemini-api/docs/api-key
+
+2. Create and configure your enviroment crawling settings in the `.env` file.
+    create .env file: 
     ```bash
-    python crawler.py
+    nano .env
+    #or using ur favorite tools
     ```
-3. Process the extracted data:
+    put your key in your enviroment file: 
+    GEMINI_API_KEY= 
+    
+3. Run the crawler:
     ```bash
-    python preprocess.py
+    python main.py 
+    or 
+    python3 main.py 
     ```
 
 ## Contributing
