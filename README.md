@@ -29,7 +29,8 @@ pip install -r requirements.txt
 
 ## Usage
 1. Create your own api key
-    Create your gemini-2.0-flash api key for free at https://ai.google.dev/gemini-api/docs/api-key
+
+Create your gemini-2.0-flash api key for free at https://ai.google.dev/gemini-api/docs/api-key
 
 2. Create and configure your enviroment crawling settings in the `.env` file.
     create .env file: 
@@ -39,7 +40,7 @@ pip install -r requirements.txt
     ```
     put your key in your enviroment file: 
     GEMINI_API_KEY= 
-    
+
 3. Run the crawler:
     ```bash
     python main.py 
