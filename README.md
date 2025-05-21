@@ -43,7 +43,11 @@ Create your gemini-2.0-flash api key for free at https://ai.google.dev/gemini-ap
     ```bash
     GEMINI_API_KEY="your key here"
     ```
-3. Run the crawler:
+3. Install requirements pagekage
+    ```bash
+    pip3 install -r requirements.txt
+    ```
+4. Run the crawler:
     ```bash
     python main.py 
     or 
