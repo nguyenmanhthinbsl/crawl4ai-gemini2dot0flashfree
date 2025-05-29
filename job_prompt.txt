@@ -1,0 +1,14 @@
+{url}
+{data}
+
+Hãy phân tích và trích xuất thông tin Việc Làm được giới thiệu ở trang web này, chuyển về dạng JSON với cấu trúc:
+
+    {{
+        "jobname - Tên công việc": "$Tên Việc Làm đang được giới thiệu ở trang web này là gì",
+        "companyname - Tên Công ty": "$Tên Công ty đang được giới thiệu tuyển dụng nhân sự ở công việc này, không được lấy tên công ty là nền tảng tuyển dụng",
+        "url - Địa chỉ web": "$URL href (của công việc đó), lấy chính xác và đầy đủ url của công việc đó",
+        "expired time": " $Thời gian hết hạn nộp đơn ứng tuyển công việc đang được giới thiệu",
+        "contact - Thông tin liên hệ đơn vị": "$Thông tin liên hệ của công ty tuyển dụng bao gồm email, số điện thoại HR, fax, ...(nếu trang web tuyển dụng không ghi rõ, hãy tìm các thông tin liên hệ của companyname tương ứng trên internet và điền vào)"
+    }}
+
+Hãy cố gắng điền đầy đủ thông tin đầy đủ nhất có thể. 
