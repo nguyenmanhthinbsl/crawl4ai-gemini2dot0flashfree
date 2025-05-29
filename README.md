@@ -1,55 +1,78 @@
-# crawl4ai-gemini
+# Crawl4AI Gemini Job Crawler
 
-## Overview
-`crawl4ai-gemini` is a project designed to facilitate web crawling and data extraction for AI-driven applications. It provides tools and utilities to efficiently gather and preprocess data from various online sources.
+A modular, Python crawler for extracting job postings (with Gemini/Google Generative AI) from multiple Vietnamese job sites, exporting results to Excel with duplicate highlighting.
 
 ## Features
-- **Customizable Crawling**: Define specific rules and targets for web crawling.
-- **Data Preprocessing**: Clean and structure data for AI models.
-- **Scalability**: Handle large-scale data extraction tasks.
-- **Extensibility**: Easily integrate with other AI pipelines.
+- Async crawling with pagination support
+- Modular, maintainable codebase (SOLID principles)
+- LLM-powered job info extraction (Google Gemini)
+- Duplicate job detection and Excel highlighting
+- Easy to add new job sites via configuration
+
+## Project Structure
+```
+.
+├── main.py                # Main orchestration script
+├── job_site_config.py     # JobSiteConfig class (site config)
+├── job_crawler.py         # JobCrawler class (crawling & pagination)
+├── job_parser.py          # JobParser class (LLM extraction)
+├── job_deduplicator.py    # JobDeduplicator class (duplicate detection)
+├── job_exporter.py        # JobExporter class (Excel export)
+├── source_url.py          # List of job site configs (urls, selectors)
+├── requirements.txt       # Python dependencies
+├── .env                   # Environment variables (not committed)
+└── README.md              # This file
+```
 
 ## Installation
-Clone the repository:
-```bash
-git clone https://github.com/nguyenmanhthinbsl/crawl4ai-gemini
-cd crawl4ai-gemini
+1. Clone the repository:
+   ```bash
+   git clone <your-repo-url>
+   cd <your-repo>
+   ```
+2. Install dependencies:
+   ```bash
+   pip install -r requirements.txt
+   ```
+
+## Environment Setup
+Create a `.env` file in the project root with your Gemini/Google Generative AI API key:
 ```
-
-## Requirement:
-### Python3 
-### pip3 
-
-
-Install dependencies:
-```bash
-pip install -r requirements.txt 
-# or using pip3
+GOOGLE_API_KEY=your_actual_api_key_here
 ```
+- You may also use `GEMINI_API_KEY` for compatibility.
 
 ## Usage
-1. Create your own api key
+Run the crawler:
+```bash
+python main.py
+```
+- The script will crawl all configured job sites, extract job info, and export results to an Excel file (with duplicate jobs highlighted).
 
-Create your gemini-2.0-flash api key for free at https://ai.google.dev/gemini-api/docs/api-key
+## Adding/Editing Job Sites
+Edit `source_url.py` to add or modify job site configurations:
+```python
+urls = [
+    {
+        "url": "https://example.com/jobs",
+        "css_selector": "div.job-item",
+        "pagination_selector": "a.next-page"
+    },
+    # ... more sites ...
+]
+```
 
-2. Create and configure your environment crawling settings in the `.env` file.\n
-    
-    create .env file: 
-    ```bash
-    nano .env
-    #or using ur favorite tools
-    ```
-    put your key in your environment file: 
-    ```bash
-    GEMINI_API_KEY="your key here"
-    ```
-3. Install requirements pagekage
-    ```bash
-    pip3 install -r requirements.txt
-    ```
-4. Run the crawler:
-    ```bash
-    python main.py 
-    or 
-    python3 main.py 
-    ```
+## Output
+- The output Excel file will be named like `jobs_data_YYYY-MM-DD_HH-MM.xlsx`.
+- Duplicate jobs (same company & job title) are highlighted with colors and a legend.
+
+## Requirements
+See `requirements.txt` for all dependencies.
+
+## Reference
+
+- thank Crawl4AI for helpful opensource 
+- If u interested, visit official repository here: 
+
+## License
+MIT (or your chosen license)
